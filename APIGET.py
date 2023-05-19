@@ -1,9 +1,12 @@
 import requests
+import json
 
-url = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json'
+url = 'https://httpbin.org/post'
+headers = {'Content-Type': 'application/json'}
+data = {'name': 'natalia'}
 
 try:
-    response = requests.get(url)
+    response = requests.post(url, headers=headers, data=json.dumps(data))
 
     response.raise_for_status()
 
